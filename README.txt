@@ -4,7 +4,7 @@ Donate link: https://mopinion.com
 Tags: customer feedback, user feedback, website feedback, feedback button, feedback form, feedback widget, forms, user experience
 Requires at least: 3.9
 Tested up to: 4.8
-Stable tag: 1.0.7
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,20 +48,18 @@ Installation of this plugin is fairly easy as any other WordPress plugin.
 **Standard procedure**
 
 1. Go to **Plugins** &rarr; **Add New**.
-1. Search for **mopinion feedback form**.
-1. Enter to **Search Plugin** field `mopinion feedback form` and press Enter key.
-1. Locate plugin **mopinion feedback form** and click **Install Now** button.
+1. Search for **Mopinion Feedback Form**.
+1. Enter to **Search Plugin** field `Mopinion Feedback Form` and press Enter key.
+1. Locate plugin **Mopinion Feedback Form** and click **Install Now** button.
 1. After successfully installed plugin click link **Activate Plugin**.
-1. Visit the **Tools** &rarr; **mopinion feedback form**.
-1. Add the desired code to proper section.
+1. Visit the **Settings** &rarr; **Mopinion Feedback Form**.
 
 **FTP procedure**
 
 1. Unpack `mopinion-feedback-form.zip`
 1. Upload the whole directory and everything underneath to the `/wp-content/plugins/` directory.
 1. Activate the plugin through the 'Plugins' menu in WordPress.
-1. Visit the **Tools** &rarr; **mopinion feedback form** (**Settings** link).
-1. Add the desired code to proper section.
+1. Visit the **Settings** &rarr; **Mopinion Feedback Form**.
 
 == Frequently Asked Questions ==
 
