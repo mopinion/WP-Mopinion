@@ -68,7 +68,11 @@ Mopinion is not just another Wordpress plugin... Mopinion is a rapidly growing S
 
 == Screenshots ==
 
-1. To be added later...
+1. Feedback Forms: By adding Mopinion to your site, you enable users to give feedback in a user-friendly way.
+2. Visual Feedback: Allow users to select page elements that they want to provide feedback on. This page element is then submitted as a screenshot together with all other feedback.
+3. Feedback inbox: Easily browse through all your feedback items with our intuitive feedback inbox. Search, filter and organise your feedback.
+4. Easy setup and full control: Build your own feedback forms with various question elements, such as open comments and scores (including NPS and Csat).
+5. Complete customisation of look and feel: Customise the complete look and feel of your feedback forms and buttons to give your visitors a fully branded experience.
 
 == Upgrade Notice ==
 
