@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: Mopinion.com
 Donate link: https://mopinion.com
-Tags: customer feedback, user feedback, website feedback, feedback button, feedback form, feedback widget, forms, user experience
+Tags: customer feedback, user feedback, website feedback, visual feedback, screenshot feedback, feedback button, feedback form, feedback widget, forms, user experience
 Requires at least: 3.9
 Tested up to: 4.8
 Stable tag: 1.0.0
@@ -12,14 +12,13 @@ Easy add feedback buttons and feedback forms to your website with the Mopinion.c
 
 == Description ==
 
-Let's say that you want to capture user feedback on your Wordpress website. This Feedback Form plugin makes that easy.
+Let's say that you want to capture user feedback on your Wordpress website. This Feedback Form plugin makes that easy and is completely free.
 
 Simply go to Settings &rarr; Mopinion Feedback Form in your website admin dashboard, and activate the Mopinion feedback form on your website.
 
+A feedback button will be visible on your website. With the feedback form you can capture suggestions, bugs and compliments, and collect visual feedback (screenshots) about individual page elements. All feedback collected will be available on your personal Mopinion account, at https://app.mopinion.com, or it can be emailed straight in to your email inbox. The feedback form is completely customisable, so easily add or change feedback questions, add your own design and logo, setup your own language and use pro-active and exit-intent triggers to decide where you want to show or hide your feedback form.
 
-A feedback button will be visible on your website. All feedback collected will be available on your personal Mopinion account, at https://app.mopinion.com, or it will be emailed straight in to your email inbox.
-
-If you want to add the feedback form to specific individual articles (post, page, custom post type), then you can use the deployment section within your Mopinion account: https://app.mopinion.com/survey/manage#tab_deployment_pane.
+If you want to add the feedback form to specific  articles (post, page, custom post type), then you can use the deployment section within your Mopinion account: https://app.mopinion.com/survey/manage#tab_deployment_pane.
 
 **Works or broken?**
 
@@ -27,12 +26,12 @@ Please, consider to vote for this plugin. When you vote for broken, be so kind a
 
 **We need your support**
 
-It is very hard to continue development and support for this free plugin without contributions from users like you. If you enjoy using our plugin and find it useful, please consider for registering a paid version in your Mopinion account: https://app.mopinion.com/account/billing. Your paid plan will help encourage and support the plugin's continued development and better user support.
+It is very hard to continue development and support for this free plugin without contributions from users like you. If you enjoy using our plugin and find it useful, please consider for registering a paid version in your Mopinion account: https://app.mopinion.com/account/billing. Your paid plan will help encourage and support the plugin's continued development and better user support. Also it offers many additional features such as advanced dashboarding/reporting and text analytics.
 
 **Features**
 
 * Feedback forms: Improve the performance and user experience of your website with fully customisable feedback forms.
-* Visual user feedback: Collect visual feedback to understand what your visitors want and what’s preventing them from achieving it.
+* Visual user feedback: Collect visual feedback (screenshots) to understand what your visitors want and what’s preventing them from achieving it.
 * Feedback form triggering: Ask the right questions at the right moment to truly understand why your visitors are not converting…
 * Reporting & analysis: Take full control of your feedback data visualisations and analyses.
 * Text and sentiment analytics: Our native text analysis technology helps you explore huge amounts of data.
