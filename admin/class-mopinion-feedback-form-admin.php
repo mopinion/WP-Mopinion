@@ -1,4 +1,4 @@
-<?php
+<div></div><?php
 
 include 'includes/mopinion-base.php';
 include 'includes/mopinion-api.php';
@@ -151,7 +151,8 @@ class Mopinion_Feedback_Form_Admin extends MopinionBase{
 
         // if we can get a mopinion org-id from the db,
         // registration must be completed
-        $registration_complete = !empty($this->get_option('organisation_id' ));
+        $organisation_id = $this->get_option('organisation_id');
+        $registration_complete = !empty($organisation_id);
 
         if($registration_complete){
 
@@ -284,7 +285,8 @@ class Mopinion_Feedback_Form_Admin extends MopinionBase{
     {
         // if we can get a mopinion org-id from the db,
         // registration must be completed
-        $registration_complete = !empty($this->get_option('organisation_id' ));
+        $organisation_id = $this->get_option('organisation_id');
+        $registration_complete = !empty($organisation_id);
         $success = $created = false;
 
         if(!empty($_POST)){
@@ -292,7 +294,7 @@ class Mopinion_Feedback_Form_Admin extends MopinionBase{
             if(!$registration_complete){
                 $password = $_POST['mopinion_feedback_form_password'];
 
-                if(empty($password) ){
+                if(empty($password)){
                     $this->addErrorMessage('Password cannot be empty');
 
                 }else{
