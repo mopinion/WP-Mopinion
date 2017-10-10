@@ -10,7 +10,6 @@
      * of this function.
      */
 
-
     $( function() {
 
         if(typeof(form_pos_val) != 'undefined'){
@@ -28,7 +27,6 @@
 
             var $input = $("input[name=mopinion_feedback_form_password]");
             var $type = $input.prop('type');
-            console.log($type);
             if($type == 'password'){
                 $input.attr('type', 'text');
 
@@ -41,10 +39,6 @@
                 $btn_text.html('Show');
             }
         });
-
-
     });
-
-
 
 })( jQuery );

@@ -16,7 +16,7 @@
  * Plugin Name:       Mopinion Feedback Form
  * Plugin URI:        https://wordpress.org/plugins/mopinion-feedback-form/
  * Description:       The Mopinion Feedback Form plugin displays a feedback button and feedback form on your website to collect valuable user feedback.
- * Version:           1.0.1
+ * Version:           1.1.0
  * Author:            Kees Wolters
  * Author URI:        https://mopinion.com/author/kees-wolters/
  * License:           GPL-2.0+

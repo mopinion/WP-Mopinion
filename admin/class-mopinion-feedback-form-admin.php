@@ -1,4 +1,4 @@
-<div></div><?php
+<?php
 
 include 'includes/mopinion-base.php';
 include 'includes/mopinion-api.php';
@@ -55,8 +55,11 @@ class Mopinion_Feedback_Form_Admin extends MopinionBase{
      */
     public function __construct( $plugin_name, $version )
     {
+        parent::__construct($plugin_name);
+
         $this->plugin_name = $plugin_name;
         $this->version = $version;
+
 
         $this->api = new MopinionApiHandler();
 
@@ -83,13 +86,17 @@ class Mopinion_Feedback_Form_Admin extends MopinionBase{
          */
 
         wp_enqueue_style(
+            $this->plugin_name.'_country_select',
+            plugin_dir_url( __FILE__ ) . 'assets/css/countrySelect.css'
+        );
+
+        wp_enqueue_style(
             $this->plugin_name,
-            plugin_dir_url( __FILE__ ) . 'css/mopinion-feedback-form-admin.css',
+            plugin_dir_url( __FILE__ ) . 'assets/css/mopinion-feedback-form-admin.css',
             array(),
             $this->version,
             'all'
         );
-
     }
 
     /**
@@ -111,15 +118,18 @@ class Mopinion_Feedback_Form_Admin extends MopinionBase{
          * between the defined hooks and the functions defined in this
          * class.
          */
-
         wp_enqueue_script(
             $this->plugin_name,
-            plugin_dir_url( __FILE__ ) . 'js/mopinion-feedback-form-admin.js',
+            plugin_dir_url( __FILE__ ) . 'assets/js/mopinion-feedback-form-admin.js',
             array( 'jquery' ),
-            $this->version,
-            false
+            $this->version
         );
 
+        wp_enqueue_script(
+            $this->plugin_name . '_country_select',
+            plugin_dir_url( __FILE__ ) . 'assets/js/countrySelect.min.js',
+            array( 'jquery' )
+        );
     }
 
 
@@ -131,8 +141,8 @@ class Mopinion_Feedback_Form_Admin extends MopinionBase{
     public function add_options_page()
     {
         $this->plugin_screen_hook_suffix = add_options_page(
-            __( 'Mopinion Feedback Form Settings', 'mopinion-feedback-form' ),
-            __( 'Mopinion Feedback Form', 'mopinion-feedback-form' ),
+            $this->tr( 'Mopinion Feedback Form Settings'),
+            $this->tr( 'Mopinion Feedback Form'),
             'manage_options',
             $this->plugin_name,
             array( $this, 'display_options_page' )
@@ -159,7 +169,7 @@ class Mopinion_Feedback_Form_Admin extends MopinionBase{
             // Section: General Settings
             add_settings_section(
                 $this->option_prefix . '_general',
-                __( 'General', 'mopinion-feedback-form' ),
+                $this->tr( 'General'),
                 array( $this, $this->option_prefix . '_general_cb' ),
                 $this->plugin_name
             );
@@ -167,7 +177,7 @@ class Mopinion_Feedback_Form_Admin extends MopinionBase{
             //add setting field radio button
             add_settings_field(
                 $this->option_prefix . '_position',
-                __( 'Select how you want the Mopinion tag to be implemented:', 'mopinion-feedback-form' ),
+                $this->tr( 'Select how you want the Mopinion tag to be implemented:'),
                 array( $this, $this->option_prefix . '_position_cb' ),
                 $this->plugin_name,
                 $this->option_prefix . '_general',
@@ -182,20 +192,30 @@ class Mopinion_Feedback_Form_Admin extends MopinionBase{
             // Section: Registration to Mopinion
             add_settings_section(
                 $this->option_prefix . '_registration',
-                __( 'Registration', 'mopinion-feedback-form' ),
+                $this->tr( 'Registration'),
                 array( $this, $this->option_prefix . '_registration_cb' ),
                 $this->plugin_name
             );
 
-            // add a textfield
+
+            add_settings_field(
+                $this->option_prefix . '_country',
+                $this->tr( 'Select your country'),
+                array( $this, $this->option_prefix . '_country_cb' ),
+                $this->plugin_name,
+                $this->option_prefix . '_registration',
+                array( 'label_for' => $this->option_prefix . '_country' )
+            );
+
             add_settings_field(
                 $this->option_prefix . '_password',
-                __( 'Set your Mopinion account password', 'mopinion-feedback-form' ),
+                $this->tr( 'Set your Mopinion account password'),
                 array( $this, $this->option_prefix . '_password_cb' ),
                 $this->plugin_name,
                 $this->option_prefix . '_registration',
                 array( 'label_for' => $this->option_prefix . '_password' )
             );
+
         }
     }
 
@@ -215,21 +235,21 @@ class Mopinion_Feedback_Form_Admin extends MopinionBase{
             '<fieldset>
                 <label>
                     <input type="radio" name="'.$position_name.'" value="mopinioninfooter">'
-                    .__( 'Append to WordPress footer (Recommended) ', 'mopinion-feedback-form' )
+                    .$this->tr( 'Append to WordPress footer (Recommended) ')
                 .'</label>
                 <br>
-                <span class="mopinion-option-note">
-                    The Mopinion tag is injected directly into the WordPress <code>&lt;footer&gt;</code>-tag. No further action is required.
-                    </span>
+                <span class="mopinion-option-note">'
+                    .$this->tr("The Mopinion tag is injected directly into the WordPress <code>&lt;footer&gt;</code>-tag. No further action is required.")
+                    .'</span>
                 <br>
                 <label style="padding-top:25px;">
                     <input type="radio" name="'.$position_name.'" value="after">'
-                    .__( 'Use an external Tag Management solution', 'mopinion-feedback-form' )
+                    .$this->tr('Use an external Tag Management solution')
                 .'</label>
                 <br>
-                <span class="mopinion-option-note">
-                    With this option you need to paste the Mopinion tag (below) in your Tag Management solution of choice. Read more about that <a href="http://support.mopinion.com/knowledge_base/topics/how-do-i-install-mopinion-with-google-tag-manager?from_search=true" target="_blank">here</a>.
-                </span>
+                <span class="mopinion-option-note">'
+                    .sprintf($this->tr("With this option you need to paste the Mopinion tag (below) in your Tag Management solution of choice. Read more about that <a href=\"%s\" target=\"_blank\">here</a>."), "http://support.mopinion.com/knowledge_base/topics/how-do-i-install-mopinion-with-google-tag-manager?from_search=true")
+                .'</span>
                 <br>
             </fieldset>';
     }
@@ -242,6 +262,17 @@ class Mopinion_Feedback_Form_Admin extends MopinionBase{
     public function mopinion_feedback_form_registration_cb()
     {
         include('partials/registration-header.php');
+    }
+
+    /**
+     * Render the country select field
+     *
+     * @since  1.1.0
+     */
+    public function mopinion_feedback_form_country_cb()
+    {
+        echo '<input id="country_selector" type="text">
+        <input type="hidden" id="country_selector_code" name="'.$this->option_prefix . '_country" />';
     }
 
     /**
@@ -272,7 +303,7 @@ class Mopinion_Feedback_Form_Admin extends MopinionBase{
      */
     public function mopinion_feedback_form_general_cb()
     {
-        echo '<p>' . __( 'Please change the settings accordingly.', 'mopinion-feedback-form' ) . '  </p>';
+        echo '<p>'.$this->tr("Please change the settings accordingly.").'</p>';
     }
 
 
@@ -293,13 +324,18 @@ class Mopinion_Feedback_Form_Admin extends MopinionBase{
 
             if(!$registration_complete){
                 $password = $_POST['mopinion_feedback_form_password'];
+                $country = $_POST['mopinion_feedback_form_country'];
 
                 if(empty($password)){
-                    $this->addErrorMessage('Password cannot be empty');
-
+                    $this->addErrorMessage($this->tr("'Password' cannot be empty"));
+                }elseif(empty($country)){
+                    $this->addErrorMessage($this->tr("'Country' cannot be empty"));
                 }else{
 
-                    $options = array('password' => $password);
+                    $options = array(
+                        'password' => $password,
+                        'country_code' => $country,
+                    );
 
                     $headers = array();
                     $params = array(
@@ -310,27 +346,32 @@ class Mopinion_Feedback_Form_Admin extends MopinionBase{
 
                     $response = $this->api->post('/organisations', $params);
 
-                    if(isset($response->error_code)){
-
-                        $error = $response->title;
-
-                        if(property_exists($response, 'details')){
-                            $error .= ' ('.implode(', ', $response->details).')';
-                        }
-
-                        $this->addErrorMessage($error);
-
+                    if(!$response){
+                        $this->addErrorMessage($this->tr("Something unexpected happened"));
                     }else{
 
-                        if($response->_meta->code===201
-                            && !empty($response->organisation->id)
-                            && !empty($response->deployment->key)
-                        ){
-                            $this->update_option('organisation_id', $response->organisation->id);
-                            $this->update_option('mopinionkey', $response->deployment->key);
-                            $this->update_option('account_creator', $this->user->user_email);
-                            $this->update_option('position', 'mopinioninfooter');
-                            $success = $created = true;
+                        if(isset($response->error_code)){
+
+                            $error = $response->title;
+
+                            if(property_exists($response, 'details')){
+                                $error .= ' ('.implode(', ', $response->details).')';
+                            }
+
+                            $this->addErrorMessage($error);
+
+                        }else{
+
+                            if($response->_meta->code===201
+                                && !empty($response->organisation->id)
+                                && !empty($response->deployment->key)
+                            ){
+                                $this->update_option('organisation_id', $response->organisation->id);
+                                $this->update_option('mopinionkey', $response->deployment->key);
+                                $this->update_option('account_creator', $this->user->user_email);
+                                $this->update_option('position', 'mopinioninfooter');
+                                $success = $created = true;
+                            }
                         }
                     }
                 }
@@ -374,7 +415,7 @@ class Mopinion_Feedback_Form_Admin extends MopinionBase{
 
     private function newOrganisationPayload(array $options=array())
     {
-        $site_name = get_bloginfo( 'name' );;
+        $site_name = get_bloginfo('name');
         $user = $this->user;
 
         $firstname = $user->user_firstname?:$user->nickname;
@@ -384,7 +425,7 @@ class Mopinion_Feedback_Form_Admin extends MopinionBase{
         $payload = array(
             'organisation' => array(
                 'name'=> $site_name,
-                'country_code'=> "us",
+                'country_code'=> $options['country_code'],
 
             ),
             'report' => array(

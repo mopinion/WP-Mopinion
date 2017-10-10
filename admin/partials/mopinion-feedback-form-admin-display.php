@@ -18,11 +18,12 @@ $mopinionkey = $this->get_option('mopinionkey', false);
 $position = $this->get_option( 'position', 'false');
 $creator = $this->get_option('account_creator', false);
 ?>
-<script>
 
+<script>
     var form_pos_val = "<?=$position; ?>";
 </script>
-<div class="wrap">
+
+<div class="wrap mopinion-feedback-form">
     <h2><?= esc_html( get_admin_page_title() ); ?></h2>
 
         <?php $this->showMessages(); ?>
@@ -37,9 +38,9 @@ $creator = $this->get_option('account_creator', false);
 
       <?php if ($position === 'after' && $mopinionkey):?>
         <hr>
-        <h3>Your Mopinion tag</h3>
+        <h3><?= $this->tr("Your Mopinion tag");?></h3>
         <p style="font-size:13px">
-            If you chose to implement Mopinion with an external Tag Management solution, copy the following code and paste on your website after the closing <code><strong>body</strong></code> tag, or add it to your Tag Manager.
+            <?=$this->tr('If you chose to implement Mopinion with an external Tag Management solution, copy the following code and paste on your website after the closing <code><strong>body</strong></code> tag, or add it to your Tag Manager.')?>
         </p>
 
         <textarea id="pasteaseContent" class="mopinion-code-block" readonly="true"><!-- Mopinion Pastea.se start -->
@@ -52,15 +53,35 @@ $creator = $this->get_option('account_creator', false);
       <hr>
 
       <div style="background-color: #FFF;padding:1px 12px; border-left:4px solid #00a0d2; margin:5px 0; ">
-        <p>If you want to change the questions, triggers or design of your feedback form, please visit <a href="https://app.mopinion.com/survey/manage" target="_blank">app.mopinion.com</a>
+        <p><?= sprintf( $this->tr("If you want to change the questions, triggers or design of your feedback form, please visit %s"), '<a href="https://app.mopinion.com/survey/manage" target="_blank">app.mopinion.com</a>');?>
         <?php if ($creator):?>
           <br>
-          Your Mopinion account is owned by user: <i><?=$creator; ?></i>.
+          <?=sprintf($this->tr("Your Mopinion account is owned by user: <i>%s</i>"), $creator) ; ?></i>.
         <?php endif; ?>
         </p>
       </div>
 
       <h3>Support</h3>
-      Having issues with your install?
-      Don't hesitate to contact <a href="mailto:support@mopinion.com">support@mopinion.com</a>.
+      <?= $this->tr("Having issues with your install?");?>
+      <?= $this->tr("Don't hesitate to contact");?> <a href="mailto:support@mopinion.com">support@mopinion.com</a>.
 </div>
+
+<?php
+
+if (!$mopinionkey):
+  $countryPreference = $this->getLocalePreferences();
+?>
+<script>
+
+  if(jQuery("#country_selector")){
+      jQuery("#country_selector").countrySelect({
+            defaultCountry: "<?= $countryPreference['default'];?>",
+            preferredCountries: ['<?= implode('\',\'', $countryPreference['preferred']); ?>']
+        });
+    }
+  <?php if($_POST && isset($_POST['mopinion_feedback_form_country'])):?>
+    jQuery("#country_selector").countrySelect("selectCountry", "<?=$_POST['mopinion_feedback_form_country'];?>");
+  <?php endif; ?>
+
+</script>
+<?php endif; ?>

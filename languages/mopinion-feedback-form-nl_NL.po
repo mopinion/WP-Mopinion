@@ -1,0 +1,180 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-Mopinion\n"
+"POT-Creation-Date: 2017-10-10 17:19+0200\n"
+"PO-Revision-Date: 2017-10-10 17:30+0200\n"
+"Last-Translator: Thomas Verwijst <thomas@mopinion.com>\n"
+"Language-Team: Mopinion Devs <info@mopinion.com>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;tr\n"
+"X-Poedit-SearchPath-0: includes\n"
+"X-Poedit-SearchPath-1: admin\n"
+
+#: admin/class-mopinion-feedback-form-admin.php:151
+msgid "Mopinion Feedback Form Settings"
+msgstr "Mopinion Feedback Formulier Instellingen"
+
+#: admin/class-mopinion-feedback-form-admin.php:152
+msgid "Mopinion Feedback Form"
+msgstr "Mopinion Feedback Formulier"
+
+#: admin/class-mopinion-feedback-form-admin.php:179
+msgid "General"
+msgstr "Algemeen"
+
+#: admin/class-mopinion-feedback-form-admin.php:187
+msgid "Select how you want the Mopinion tag to be implemented:"
+msgstr "Kies hoe je de Mopinion-tag wilt implementeren:"
+
+#: admin/class-mopinion-feedback-form-admin.php:202
+msgid "Registration"
+msgstr "Registratie"
+
+#: admin/class-mopinion-feedback-form-admin.php:210
+msgid "Select your country"
+msgstr "Selecteer je land"
+
+#: admin/class-mopinion-feedback-form-admin.php:219
+msgid "Set your Mopinion account password"
+msgstr "Kies je Mopinion wachtwoord"
+
+#: admin/class-mopinion-feedback-form-admin.php:245
+msgid "Append to WordPress footer (Recommended) "
+msgstr "Insluiten in WordPress footer (Aanbevolen) "
+
+#: admin/class-mopinion-feedback-form-admin.php:249
+msgid ""
+"The Mopinion tag is injected directly into the WordPress <code>&lt;footer&gt;"
+"</code>-tag. No further action is required."
+msgstr ""
+"De Mopinion tag wordt direct in de WordPress <code>&lt;footer&gt;</code>-tag "
+"geinjecteerd. Er is geen verdere actie vereist."
+
+#: admin/class-mopinion-feedback-form-admin.php:254
+msgid "Use an external Tag Management solution"
+msgstr "Gebruik een externe Tag Manager"
+
+#: admin/class-mopinion-feedback-form-admin.php:258
+#, php-format
+msgid ""
+"With this option you need to paste the Mopinion tag (below) in your Tag "
+"Management solution of choice. Read more about that <a href=\"%s\" target="
+"\"_blank\">here</a>."
+msgstr ""
+"Met deze optie plak je zelf de Mopinion tag (onder) in een Tag Manager. <a "
+"href=\"%s\" target=\"_blank\">Hier</a> lees je er meer over."
+
+#: admin/class-mopinion-feedback-form-admin.php:313
+msgid "Please change the settings accordingly."
+msgstr "Pas je instellingen aan."
+
+#: admin/class-mopinion-feedback-form-admin.php:337
+msgid "'Password' cannot be empty"
+msgstr "'Wachtwoord' kan niet leeg zijn"
+
+#: admin/class-mopinion-feedback-form-admin.php:339
+msgid "'Country' cannot be empty"
+msgstr "'Land' kan niet leeg zijn"
+
+#: admin/class-mopinion-feedback-form-admin.php:357
+msgid "Something unexpected happened"
+msgstr "Er is iets mis gegaan"
+
+#: admin/partials/account-created.php:6
+msgid "A new Mopinion account has been created"
+msgstr "Een nieuwe Mopinion account is aangemaakt."
+
+#: admin/partials/account-created.php:8
+#, php-format
+msgid ""
+"You can access your account by visiting %s to further customize your "
+"feedback form."
+msgstr "Je kunt je feedback form verder aanpassen op %s"
+
+#: admin/partials/account-created.php:11
+msgid "Continue"
+msgstr "Doorgaan"
+
+#: admin/partials/mopinion-feedback-form-admin-display.php:40
+msgid "Your Mopinion tag"
+msgstr "Jouw Mopinion Tag"
+
+#: admin/partials/mopinion-feedback-form-admin-display.php:42
+msgid ""
+"If you chose to implement Mopinion with an external Tag Management solution, "
+"copy the following code and paste on your website after the closing "
+"<code><strong>body</strong></code> tag, or add it to your Tag Manager."
+msgstr ""
+"Indien je ervoor gekozen hebt om Mopinion niet direct in de footer te "
+"injecteren, kopieer dan onderstaande code en plak deze op je website na de "
+"afsluitende <code><strong>body</strong></code> tag, of voeg deze toe aan je "
+"Tag Manager."
+
+#: admin/partials/mopinion-feedback-form-admin-display.php:55
+#, php-format
+msgid ""
+"If you want to change the questions, triggers or design of your feedback "
+"form, please visit %s"
+msgstr ""
+"Voor het aanpassen van vragen, triggers of het design van je feedback "
+"formulier, ga je naar %s"
+
+#: admin/partials/mopinion-feedback-form-admin-display.php:58
+#, php-format
+msgid "Your Mopinion account is owned by user: <i>%s</i>"
+msgstr "Je Mopinion account wordt beheerd door gebruiker: <i>%s</i>"
+
+#: admin/partials/mopinion-feedback-form-admin-display.php:64
+msgid "Having issues with your install?"
+msgstr "Problemen met installatie?"
+
+#: admin/partials/mopinion-feedback-form-admin-display.php:65
+msgid "Don't hesitate to contact"
+msgstr "Aarzel niet om contact op te nemen"
+
+#: admin/partials/registration-header.php:2
+msgid ""
+"First, Let's set you up with a Mopinion account. (Totally <strong>free</"
+"strong> of course...)"
+msgstr ""
+"Laten we eerst een Mopinion  account voor je aanmaken. (Helemaal "
+"<strong>gratis</strong> natuurlijk...)"
+
+#: admin/partials/registration-header.php:4
+msgid ""
+"The username for your Mopinion-account will be the email address you are "
+"currently logged in with."
+msgstr ""
+"De gebruikersnaam voor je Mopinion-account is het email adres waar je "
+"momenteel mee bent ingelogd."
+
+#: admin/partials/registration-header.php:7
+msgid "After registration, you can login at"
+msgstr "Na registratie kun je inloggen op"
+
+#: admin/partials/registration-header.php:11
+msgid ""
+"All we need from you now is  your country and a password for your new "
+"account."
+msgstr ""
+"Verder hebben we alleen nog je land en een wachtwoord nodig voor je nieuwe "
+"account."
+
+#~ msgid ""
+#~ "All we need from you now is  your country and a password for your new "
+#~ "account"
+#~ msgstr ""
+#~ "Verder hebben we alleen nog je land en een wachtwoord nodig voor je "
+#~ "nieuwe account"
+
+#~ msgid "All we need from you now is a password for your new account"
+#~ msgstr "Voor nu hebben we alleen een wachtwoord nodig voor je nieuw account"
+
+#~ msgid "Country cannot be empty"
+#~ msgstr "Land kan niet leeg zijn"

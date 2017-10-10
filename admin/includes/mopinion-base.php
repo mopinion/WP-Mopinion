@@ -2,13 +2,14 @@
 
 class MopinionBase
 {
-
     private $messages = array(
         'success' => [],
         'info'    => [],
         'warning' => [],
         'error'   => [],
     );
+
+    private $text_domain;
 
     /**
      * The prefix for the plugins options
@@ -20,8 +21,10 @@ class MopinionBase
     protected $option_prefix = 'mopinion_feedback_form';
 
 
-    public function __construct()
-    {}
+    public function __construct($plugin_name)
+    {
+        $this->text_domain = $plugin_name;
+    }
 
 
     public function get_option($name, $fallback=null)
@@ -86,5 +89,51 @@ class MopinionBase
         </div>";
 
         return $notice;
+    }
+
+
+    /**
+     * Translate helper function
+     * @param  string $string String to translate
+     * @return string         Translated string
+     */
+    protected function tr($string)
+    {
+        return __($string, $this->text_domain);
+    }
+
+    protected function getLocalePreferences()
+    {
+      $locale = get_locale();
+
+      $localeSettings = array(
+        'nl_NL' => array(
+          'default' => "nl",
+          'preferred' => ['nl', 'be', 'de', 'sr'],
+        ),
+        'nl_BE' => array(
+          'default' => "be",
+          'preferred' => ['be', 'nl',  'de', 'sr'],
+        ),
+        'en_GB' => array(
+          'default' => "gb",
+          'preferred' => ['gb', 'us', 'ca', 'au'],
+        ),
+        'en_US' => array(
+          'default' => "us",
+          'preferred' => ['us', 'ca', 'gb', 'au'],
+        ),
+      );
+
+      if($locale && in_array($locale, array_keys($localeSettings))){
+
+         return $localeSettings[$locale];
+      }
+
+      return array(
+        'default' => 'us',
+        'preferred' => ['us', 'ca', 'gb', 'nl']
+      );
+
     }
 }
