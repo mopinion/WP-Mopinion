@@ -109,11 +109,12 @@ class MopinionApiHandler
      */
     private function generateAuthToken()
     {
-        if(empty(self::SIGNATURE_TOKEN)){
+        $sig = self::SIGNATURE_TOKEN;
+        if(empty($sig)){
             throw new \Exception("Signature token is not set");
         }
 
-        $signature = hash_hmac(self::HASH_METHOD, $this->getRoute(false).'|'.$this->jsonBody, self::SIGNATURE_TOKEN);
+        $signature = hash_hmac(self::HASH_METHOD, $this->getRoute(false).'|'.$this->jsonBody, $sig);
 
         return base64_encode(self::PUBLIC_KEY.":".$signature);
     }

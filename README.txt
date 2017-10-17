@@ -4,7 +4,7 @@ Donate link: https://mopinion.com
 Tags: customer feedback, user feedback, website feedback, visual feedback, screenshot feedback, feedback button, feedback form, feedback widget, forms, user experience
 Requires at least: 3.9
 Tested up to: 4.8
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,9 @@ Mopinion is not just another Wordpress plugin... Mopinion is a rapidly growing S
 Not applicable.
 
 == Changelog ==
+
+= 1.1.1 =
+* Compatibility fix
 
 = 1.1.0 =
 * Added Dutch translation
